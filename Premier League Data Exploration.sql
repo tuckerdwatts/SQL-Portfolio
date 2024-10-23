@@ -34,9 +34,8 @@ limit
 	5
 ;
 
-—Most Efficient Goal Scorers (Highest Goals per 90mins vs. Expected Goals per 90mins)
-—Identifies the players who outperformed their expected goals the most, i.e, players with the highest difference between goals
-    per 90 minutes and expected goals per 90 minutes
+—- Most Efficient Goal Scorers (Highest Goals per 90mins vs. Expected Goals per 90mins)
+—- Identifies the players who outperformed their expected goals the most, i.e, players with the highest difference between goals per 90 minutes and expected goals per 90 minutes
 
 select
 	  pn.player_name
@@ -57,9 +56,9 @@ limit
 	10
 ;
 
-—Age vs. Offensive Performance
-—Using join to analyze whether older players offensively performed better or worse than younger players
---Offensive performance based on goals per 90 minutes and assists per 90 minutes
+—- Age vs. Offensive Performance
+—- Using join to analyze whether older players offensively performed better or worse than younger players
+-- Offensive performance based on goals per 90 minutes and assists per 90 minutes
 
 select
 	case
@@ -82,9 +81,8 @@ group by
 ;
 
 
-—Calculating Best Goal-to-Minutes Ratio
-—Identifies the player with the best goal-to-minutes ratio (goals per minute played), only considering players who played
-    at least 1000 minutes
+—- Calculating Best Goal-to-Minutes Ratio
+—- Identifies the player with the best goal-to-minutes ratio (goals per minute played), only considering players who played at least 1000 minutes
 
 select
 	  s.player_name
@@ -102,8 +100,8 @@ limit
 ;
 
 
-—Finding Top Scorers per Position
-—Using a Common Table Expression (CTE) to find the top 3 goal scorers for each position
+—- Finding Top Scorers per Position
+—- Using a Common Table Expression (CTE) to find the top 3 goal scorers for each position
 
 with goals_per_position as (
     select
@@ -127,8 +125,8 @@ order by
     , goal_rank
 ;
 
-—Filtering players with high discipline
-— Using a temp table to only show players with no more than 3 yellow cards or 1 red card and finding top 5 scorers from this group
+—- Filtering players with high discipline
+—- Using a temp table to only show players with no more than 3 yellow cards or 1 red card and finding top 5 scorers from this group
 
 create temp table disciplined_players as
 select
@@ -157,7 +155,7 @@ limit
 	5
 ;
 
-—Creating View to store data for later visualizations
+—- Creating View to store data for later visualizations
 
 create view player_performance_view as
 	with goals_per_minute_cte as (
